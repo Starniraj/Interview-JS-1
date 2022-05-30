@@ -18,7 +18,7 @@
          
 -->
 
-<!-- 4. What is Execution context -->
+<!-- 4. What is Execution context 
   
     In this phase the exact value is assigned and undefined value is removed and after calling the function and the function will execute.
 -->
@@ -33,6 +33,28 @@
     return x + y;  
 }  
 let sum = add; 
+-->
+
+<!--6. Closures   Closure is not something that we create manually or explicitly. It happens automatically in certain situations which be need to recognize.
+ Closure makes a function remember all the variables that esisted at the function birthplace initially. 
+Any function always has access to the variable environment of the execution context in which the function was created.
+
+example ; 
+
+   const ticketBooking = function(){
+    let passengerCount = 0;
+
+    return function(){
+        passengerCount++;
+        console.log(`the passenger Count is ${passengerCount}`);
+
+    };
+};
+
+const bookie = ticketBooking();
+bookie();
+bookie();
+bookie();
 -->
 
 
