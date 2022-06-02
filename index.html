@@ -1,60 +1,107 @@
-<!-- 1 . Differnece between == and === operator -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1. Difference between “ == “ and “ === “ operators.
 
-<!-- ==  : the double equal to compare the between two value and triple equal to also compare the value but also check the datatypes.--> 
+        == operator : It will compare two value as equal.
+        === operator : It will compare tow value  as equal and also check the datatype.
+        
+        console.log(2==2)//true
+        console.log(2==="2")//false
 
-<!-- 2. What is spread operator. 
-   
-    Spread operator denotes with ... and it copy the array or object into another array of object.
-    
-    let my arr = ["h","i"]
+        2. What is the spread operator?
 
-    ...my arr "h","i"
--->
+        Ans : It is denotes with ... . An object expressions to be expanded in places where zero or more key value pairs are expected.
 
-<!-- 3. Difference between var and let const.
-          It support hoisting and you can take two or more variable same type in var.
-          but in let and const we can't do same thing as well as var like not support hoisting and cant't take same variable more than once. 
-          Const: it can't be declared without initi
+        const number = [1,2,3]
+
+        console.log(...number);
+
+        3. What are the differences between var, let and const?
+
+        Ans : Let and const does not support hoisting but var support hoisting.
+              we cannot take same variable more than one using let and const but using var we can take same variable more than one.
+              var and let can be decalred without initilization but const cannot be declared without initilization.
+
+        4. What is execution context?
+
+        Ans : The are two phase:
+         1.Creation phase : In creation phase the value is undefined and address is located to memory after that when work is done creation phase.
+         2.Execution phase : Exact value is assigned to the variable and undefined is removed and function will run when it called.
+
+        5. What is meant by first class functions?
+
+        Ans :  The functions can be passed as values into another functions or can be returned from 
+           another functions a values . This unique feature of functions makes them called as first class functions /First
+           class citizens.
+
+            let i = function(){
+            return function j(){//FCF
+            console.log("I am fn J");
+         }
+       }
+           console.log(i());
+
+       6. What are closures?
+
+          Closure is not something that we create manually or explicitly. It happens automatically in certain situations which be need to recognize.
+         Closure makes a function remember all the variables that existed at the function birthplace initially. 
+         Any function always has access to the variable environment of the execution context in which the function was created. 
+
+       7.  Give an example of closure
+
+         const ticketBooking = function(){
+             pasengercount = 0;
+
+             return function(){
+                 pasengercount++
+                 console.log(`The passenger count is ${pasenger count}`);
+             }
+         }
+
+         const bookie = ticketBooking();
+         bookie(); //the pasenger count is 1
+         bookie(); //the pasenger count is 2
+         bookie(); //the pasenger count is 3.
+
+        8. Explain call(), apply() and, bind() methods.
+
+        Ans : It is used to borrowing the function. 
          
--->
+          call :  we can call the method using in normal bracket.
+          apply : Using [] big bracket.
+          bind : In bind method it return the function it run when it called.
+          
+          let employee1 = {
+              fname : "Niraj",
+              lname : "Singh",
+              role : "Analyst",
+          }
 
-<!-- 4. What is Execution context 
-  
-    In this phase the exact value is assigned and undefined value is removed and after calling the function and the function will execute.
--->
+         function showDetails(age,gender){
+             console.log(this.fname,this.lname,this.role,age,gender);
+         }
 
-<!-- 5. First Class Function : In this function variable can be treated an another variable and in first class function we also passed a argument tocan be another function 
-    can be returned by another function. 
-   
+         let employee2 = {
+              fname : "Pawan",
+              lname : "Rao",
+              role : "Developer",
+         }
 
-    example 
+         employee1.showDetails.call(employee2);
 
-    function add(x, y) {  
-    return x + y;  
-}  
-let sum = add; 
--->
+        showDetails.call(employee1,23,"M");//Niraj, Singh,Analyst, 23, M  output.
+        showDetails.apply(employee2 ,[23,"M"]);
+        let res1 = showDetails.blind(employee2);
+        res1(24,"M);
+     -->
 
-<!--6. Closures   Closure is not something that we create manually or explicitly. It happens automatically in certain situations which be need to recognize.
- Closure makes a function remember all the variables that esisted at the function birthplace initially. 
-Any function always has access to the variable environment of the execution context in which the function was created.
-
-example ; 
-
-   const ticketBooking = function(){
-    let passengerCount = 0;
-
-    return function(){
-        passengerCount++;
-        console.log(`the passenger Count is ${passengerCount}`);
-
-    };
-};
-
-const bookie = ticketBooking();
-bookie();
-bookie();
-bookie();
--->
-
-
+     
+</body>
+</html>
